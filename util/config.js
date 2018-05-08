@@ -32,6 +32,9 @@ module.exports = {
 		},
 	},
 
+	// depth for table of contents
+	toc_depth: 3,
+
 	// encoding
 	md_file_encoding: 'utf-8',
 	stylesheet_encoding: 'utf-8',

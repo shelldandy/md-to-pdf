@@ -11,6 +11,7 @@ const help = `
     --css                   String of styles (can be used to overwrite stylesheets)
     --body-class            Classes to be added to the body tag (can be passed multiple times)
     --highlight-style       Style to be used by highlight.js (default: github)
+    --toc-depth             Depth for the table of contents
     --marked-options        Set custom options for marked (as a JSON string)
     --html-pdf-options      Set custom options for html-pdf (as a JSON string)
     --md-file-encoding      Set the file encoding for the markdown file
