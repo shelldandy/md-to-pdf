@@ -100,8 +100,5 @@ img {
 .toc a {
 	display: block;
 	color: inherit;
-}
-
-.toc a.h1 {
-	font-weight: bold;
+	text-decoration: none;
 }
