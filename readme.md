@@ -31,6 +31,7 @@ Options:
   --css                   String of styles (can be used to overwrite stylesheets)
   --body-class            Classes to be added to the body tag (can be passed multiple times)
   --highlight-style       Style to be used by highlight.js (default: github)
+  --toc-depth             Depth for the table of contents
   --marked-options        Set custom options for marked (as a JSON string)
   --html-pdf-options      Set custom options for html-pdf (as a JSON string)
   --md-file-encoding      Set the file encoding for the markdown file
@@ -61,6 +62,18 @@ Place an element with id `pageHeader`/`pageFooter` in your document, e. g.:
 
 Refer to the [html-pdf docs](https://github.com/marcbachmann/node-html-pdf#footers-and-headers) for more info about headers and footers.
 
+#### Table of Contents (TOC)
+
+Place an element with class `toc` in your document, e. g.:
+
+```html
+## Table of Contents
+
+<div class="toc"></div>
+```
+
+It will include all headers that come after the `.toc` element. You can use the `--toc-depth` option to change the level of headers that will be included (default is `3`).
+
 #### Default and Advanced Options
 
 For markdown, GFM and tables are enabled by default (see `util/config.js` for default options). The default highlight.js styling for code blocks is `github`.
@@ -79,6 +92,7 @@ For advanced options see the following links:
 | `--css` | `body { color: tomato; }` |
 | `--body_class` | `markdown-body` |
 | `--highlight-style` | `monokai`, `solarized-light` |
+| `--toc-depth` | `3` |
 | `--marked-options` | `'{"gfm": false }'` |
 | `--html-pdf-options` | `'{"format": "Letter", border: "1in" }'` |
 | `--md-file-encoding` | `utf-8`, `windows1252` |
