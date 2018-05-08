@@ -5,7 +5,7 @@ function addToc(depth) {
 	if (toc) {
 		var headingsSelector = 'h1 h2 h3 h4 h5 h6'
 			.split(' ')
-			.slice(0, depth)
+			.slice(0, depth + 1)
 			.map(function(selector) {
 				return '.toc ~ ' + selector;
 			})
