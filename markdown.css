@@ -96,3 +96,12 @@ img {
 	max-width: 100%;
 	margin: 1em 0;
 }
+
+.toc a {
+	display: block;
+	color: inherit;
+}
+
+.toc a.h1 {
+	font-weight: bold;
+}
