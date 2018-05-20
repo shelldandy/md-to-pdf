@@ -9,6 +9,7 @@ const marked = require('./get-marked-with-highlighter');
  * @param {String[]} config.body_class List of classes to append to the body tag
  * @param {Object} config.marked_options Options for marked
  * @param {number} config.toc_depth Depth for table of contents
+ * @returns string containing HTML document with transformed markdown
  */
 module.exports = (md, headTags, config) => `<!DOCTYPE html>
 <html><head>
