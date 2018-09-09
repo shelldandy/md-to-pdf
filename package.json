@@ -27,20 +27,22 @@
 	"license": "Unlicense",
 	"repository": "https://github.com/simonhaenisch/md-to-pdf",
 	"dependencies": {
+		"@pixel2html/eslint-config": "^1.7.0",
 		"arg": "2.0.0",
 		"chalk": "2.4.1",
-		"get-port": "3.2.0",
+		"eslint": "^5.5.0",
+		"get-port": "4.0.0",
 		"gray-matter": "4.0.1",
 		"highlight.js": "9.12.0",
-		"iconv-lite": "0.4.23",
-		"marked": "0.4.0",
-		"puppeteer": "1.4.0",
-		"serve": "6.5.8"
+		"iconv-lite": "0.4.24",
+		"marked": "0.5.0",
+		"puppeteer": "1.8.0",
+		"serve": "10.0.0"
 	},
 	"devDependencies": {
 		"ava": "0.25.0",
-		"nyc": "11.8.0",
-		"xo": "0.21.1"
+		"nyc": "13.0.1",
+		"xo": "0.23.0"
 	},
 	"prettier": {
 		"printWidth": 120,
@@ -67,5 +69,8 @@
 				}
 			]
 		}
+	},
+	"eslintConfig": {
+		"extends": "@pixel2html/eslint-config"
 	}
 }

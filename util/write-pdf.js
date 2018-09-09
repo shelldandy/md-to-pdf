@@ -19,48 +19,48 @@ const { getDir } = require('./helpers');
  * pdf's filename
  */
 module.exports = async (mdFilePath, outputPath, html, config) => {
-	const pdfFilePath = outputPath || getPdfFilePath(mdFilePath);
-	const assetsBasePath = getDir(mdFilePath);
-	const port = await getPort();
+  const pdfFilePath = outputPath || getPdfFilePath(mdFilePath);
+  const assetsBasePath = getDir(mdFilePath);
+  const port = await getPort();
 
-	const server = serve(assetsBasePath, { port, local: true, clipless: true, silent: true });
+  const server = serve(assetsBasePath, { port, local: true, clipless: true, silent: true });
 
-	await waitForLocalhost(port);
+  await waitForLocalhost(port);
 
-	const browser = await puppeteer.launch({ devtools: config.devtools });
+  const browser = await puppeteer.launch({ devtools: config.devtools });
 
-	const page = await browser.newPage();
+  const page = await browser.newPage();
 
-	// track requests using array
-	const requests = [];
-	page.on('request', () => requests.push(null));
-	page.on('requestfinished', () => requests.pop());
-	page.on('requestfailed', () => requests.pop());
+  // track requests using array
+  const requests = [];
+  page.on('request', () => requests.push(null));
+  page.on('requestfinished', () => requests.pop());
+  page.on('requestfailed', () => requests.pop());
 
-	await page.goto(`http://localhost:${port}`, { waitUntil: 'networkidle0' });
-	await page.setContent(html);
+  await page.goto(`http://localhost:${port}`, { waitUntil: 'networkidle0' });
+  await page.setContent(html);
 
-	await config.stylesheet.map(async stylesheet => {
-		await page.addStyleTag(stylesheet.startsWith('http') ? { url: stylesheet } : { path: stylesheet });
-	});
+  await config.stylesheet.map(async stylesheet => {
+    await page.addStyleTag(stylesheet.startsWith('http') ? { url: stylesheet } : { path: stylesheet });
+  });
 
-	await page.addStyleTag({ content: config.css });
+  await page.addStyleTag({ content: config.css });
 
-	// wait until requests array is empty (wish puppeteer could handle that)
-	await new Promise(resolve => {
-		const waitUntilEmpty = async array => (array.length > 0 ? setTimeout(() => waitUntilEmpty(array), 100) : resolve());
-		waitUntilEmpty(requests);
-	});
+  // wait until requests array is empty (wish puppeteer could handle that)
+  await new Promise(resolve => {
+    const waitUntilEmpty = async array => (array.length > 0 ? setTimeout(() => waitUntilEmpty(array), 100) : resolve());
+    waitUntilEmpty(requests);
+  });
 
-	if (config.devtools) {
-		await new Promise(resolve => page.on('close', resolve));
-	} else {
-		await page.emulateMedia('screen');
-		await page.pdf({ path: pdfFilePath, printBackground: true, ...config.pdf_options });
-	}
+  if (config.devtools) {
+    await new Promise(resolve => page.on('close', resolve));
+  } else {
+    await page.emulateMedia('screen');
+    await page.pdf({ path: pdfFilePath, printBackground: true, ...config.pdf_options });
+  }
 
-	browser.close();
-	server.stop();
+  browser.close();
+  server.stop();
 
-	return config.devtools ? {} : { filename: pdfFilePath };
+  return config.devtools ? {} : { filename: pdfFilePath };
 };

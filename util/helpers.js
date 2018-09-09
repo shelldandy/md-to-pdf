@@ -14,29 +14,29 @@ module.exports.getDir = filePath => resolve(parse(filePath).dir);
  * @returns object with keys 'top', 'right', 'bottom', 'left'
  */
 module.exports.getMarginObject = margin => {
-	if (margin === null) {
-		return null;
-	}
+  if (margin === null) {
+    return null;
+  }
 
-	const [top, right, bottom, left, ...remaining] = margin.split(' ');
+  const [top, right, bottom, left, ...remaining] = margin.split(' ');
 
-	if (typeof margin === 'string' && remaining.length === 0) {
-		if (left) {
-			return { top, right, bottom, left };
-		}
+  if (typeof margin === 'string' && remaining.length === 0) {
+    if (left) {
+      return { top, right, bottom, left };
+    }
 
-		if (bottom) {
-			return { top, right, bottom, left: right };
-		}
+    if (bottom) {
+      return { top, right, bottom, left: right };
+    }
 
-		if (right) {
-			return { top, right, bottom: top, left: right };
-		}
+    if (right) {
+      return { top, right, bottom: top, left: right };
+    }
 
-		if (top) {
-			return { top, right: top, bottom: top, left: top };
-		}
-	}
+    if (top) {
+      return { top, right: top, bottom: top, left: top };
+    }
+  }
 
-	throw new Error(`invalid margin input: ${margin}`);
+  throw new Error(`invalid margin input: ${margin}`);
 };

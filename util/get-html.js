@@ -10,10 +10,11 @@ const getMarked = require('./get-marked-with-highlighter');
  */
 module.exports = (md, config) => `<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-</head>
-<body class="${config.body_class.join(' ')}">
-${getMarked(config.marked_options)(md)}
-</body></html>
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body class="${config.body_class.join(' ')}">
+    ${getMarked(config.marked_options)(md)}
+  </body>
+</html>
 `;
