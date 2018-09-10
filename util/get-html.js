@@ -1,4 +1,4 @@
-const getMarked = require('./get-marked-with-highlighter');
+const getMarked = require('./get-marked-with-highlighter')
 
 /**
  * Generates a HTML document from a markdown string and returns it as a string.
@@ -17,4 +17,4 @@ module.exports = (md, config) => `<!DOCTYPE html>
     ${getMarked(config.marked_options)(md)}
   </body>
 </html>
-`;
+`

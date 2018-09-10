@@ -1,76 +1,49 @@
 {
-	"name": "md-to-pdf",
-	"version": "2.1.1",
-	"description": "CLI tool for converting Markdown files to PDF",
-	"keywords": [
-		"documentation",
-		"assignments",
-		"homework",
-		"markdown",
-		"pdf",
-		"pdf-generation",
-		"markdown-to-pdf"
-	],
-	"engines": {
-		"node": ">= 8.3.0"
-	},
-	"main": "index.js",
-	"scripts": {
-		"start": "node . --help",
-		"test": "xo && nyc ava"
-	},
-	"bin": {
-		"md-to-pdf": "./index.js",
-		"md2pdf": "./index.js"
-	},
-	"author": "Simon Haenisch (https://simonhaenisch.com)",
-	"license": "Unlicense",
-	"repository": "https://github.com/simonhaenisch/md-to-pdf",
-	"dependencies": {
-		"@pixel2html/eslint-config": "^1.7.0",
-		"arg": "2.0.0",
-		"chalk": "2.4.1",
-		"eslint": "^5.5.0",
-		"get-port": "4.0.0",
-		"gray-matter": "4.0.1",
-		"highlight.js": "9.12.0",
-		"iconv-lite": "0.4.24",
-		"marked": "0.5.0",
-		"puppeteer": "1.8.0",
-		"serve": "10.0.0"
-	},
-	"devDependencies": {
-		"ava": "0.25.0",
-		"nyc": "13.0.1",
-		"xo": "0.23.0"
-	},
-	"prettier": {
-		"printWidth": 120,
-		"singleQuote": true,
-		"tabWidth": 2,
-		"trailingComma": "all",
-		"useTabs": true,
-		"bracketSpacing": true
-	},
-	"xo": {
-		"prettier": true,
-		"rules": {
-			"camelcase": [
-				"error",
-				{
-					"properties": "never"
-				}
-			],
-			"capitalized-comments": "off",
-			"valid-jsdoc": [
-				"warn",
-				{
-					"requireReturnType": false
-				}
-			]
-		}
-	},
-	"eslintConfig": {
-		"extends": "@pixel2html/eslint-config"
-	}
+  "name": "md-to-pdf",
+  "version": "2.1.1",
+  "description": "CLI tool for converting Markdown files to PDF",
+  "keywords": [
+    "documentation",
+    "assignments",
+    "homework",
+    "markdown",
+    "pdf",
+    "pdf-generation",
+    "markdown-to-pdf"
+  ],
+  "engines": {
+    "node": ">= 8.3.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node . --help",
+    "test": "nyc ava"
+  },
+  "bin": {
+    "md-to-pdf": "./index.js",
+    "md2pdf": "./index.js"
+  },
+  "author": "Simon Haenisch (https://simonhaenisch.com)",
+  "license": "Unlicense",
+  "repository": "https://github.com/simonhaenisch/md-to-pdf",
+  "dependencies": {
+    "@pixel2html/eslint-config": "^1.7.0",
+    "arg": "2.0.0",
+    "chalk": "2.4.1",
+    "eslint": "^5.5.0",
+    "get-port": "4.0.0",
+    "gray-matter": "4.0.1",
+    "highlight.js": "9.12.0",
+    "iconv-lite": "0.4.24",
+    "marked": "0.5.0",
+    "puppeteer": "1.8.0",
+    "serve": "^10.0.0"
+  },
+  "devDependencies": {
+    "ava": "0.25.0",
+    "nyc": "13.0.1"
+  },
+  "eslintConfig": {
+    "extends": "@pixel2html/eslint-config"
+  }
 }

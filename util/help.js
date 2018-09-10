@@ -1,4 +1,4 @@
-const chalk = require('chalk');
+const chalk = require('chalk')
 
 const help = `
   ${chalk.bold('$ md-to-pdf')} [options] <path/to/file.md> [path/to/output.pdf]
@@ -43,6 +43,6 @@ const help = `
   ${chalk.gray('–')} Convert file.md using custom page options
 
     ${chalk.cyan('$ md2pdf file.md --pdf-options \'{ "format": "Letter", "margin": null }\'')}
-`;
+`
 
-module.exports = () => console.log(help);
+module.exports = () => console.log(help)

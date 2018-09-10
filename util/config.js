@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 // In config keys, dashes of cli flag names are replaced with underscores.
 module.exports = {
@@ -38,4 +38,4 @@ module.exports = {
 
   // open chromium with devtools instead of saving the pdf
   devtools: false,
-};
+}

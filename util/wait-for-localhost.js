@@ -1,4 +1,4 @@
-const http = require('http');
+const http = require('http')
 
 /**
  * Wait for localhost to be available.
@@ -9,17 +9,17 @@ const http = require('http');
  */
 module.exports = (port, interval = 100) =>
   new Promise(resolve => {
-    const retry = () => setTimeout(main, interval);
+    const retry = () => setTimeout(main, interval)
 
     function main () {
       const request = http.request(
         { method: 'HEAD', port },
         response => (response.statusCode === 200 ? resolve() : retry()),
-      );
+      )
 
-      request.on('error', retry);
-      request.end();
+      request.on('error', retry)
+      request.end()
     }
 
-    main();
-  });
+    main()
+  })
